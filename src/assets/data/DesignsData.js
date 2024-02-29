@@ -6,7 +6,7 @@
                           {
                             id: 0,
                               title: "ASL Gatherings Schedule",
-                              images:( process.env.PUBLIC_URL +  "/assets/images/design/CBTL_1_E.png"),
+                              images:( process.env.PUBLIC_URL +  "/assets/images/design/cbtl_1.png"),
                               alt: "poster with contact info and schedule for ASL Gatherings.",
                               description: "ASL Gatherings class Schedule for spring 2017.",
                               myDuty:"Graphic Designer.",
