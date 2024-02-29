@@ -1,13 +1,271 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+
+html, body {
+  margin:0;
+  overflow-x:hidden;
+  font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+@import 'bulma/css/bulma.css';
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.scrolling-wrapper {
+  overflow-x: scroll;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+
+
+.anton-regular {
+  font-family: "Anton", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+:-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, .5);
+  box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+}
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-text {
+  animation: slideRight 2s ease-in-out backwards;
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.slide-text2 {
+  animation: slideLeft 3s ease-in-out forwards;
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear2 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes appear3 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+.appear-text {
+  animation: appear 3s ease-in-out forwards;
+}
+
+.appear-text2 {
+  animation: appear 5s ease-in-out forwards;
+}
+.appear-text3 {
+  animation: appear 5s ease-in-out forwards;
+}
+
+.appear-text4 {
+  animation: appear 2s ease-in ;
+}
+
+.appear-text5 {
+  animation: appear 3s ease-in ;
+}
+
+.appear-text6 {
+  animation: appear 4s ease-in ;
+}
+.appear-text7 {
+  animation: appear 5s ease-in;
+}
+
+ .avatar {
+  border-radius: 50%;
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+#rcorners {
+  border-radius: 250px;
+}
+
+.fade-in-3 {
+  animation: fadeIn ease 3s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+
+.fade-in-2 {
+  animation: fadeIn ease 6s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+
+.fade-in-1 {
+  animation: fadeIn ease 8s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.fade-in-4 {
+  animation: fadeIn4 ease 12s;
+}
+@keyframes fadeIn4 {
+  0% {
+    opacity:.3;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+.column {
+  display: flex;
+}
+
+.avatar {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75) inset;
+  -moz-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75) inset;
+  -webkit-box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.75) inset;
+}
+
+
+.hero-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+.overlay {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-color: hsl(0, 0%, 7%, .8); 
+}
+
+
+.column {
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.main_bkg_vid {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+a:link {
+  color: blue;
+}
+
+a:visited {
+  color:black;
+}
+
+
+.navbar-item-portfolio:visited  {
+  color:white;
 }
