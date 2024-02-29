@@ -6,7 +6,7 @@
                           {
                             id: 0,
                               title: "ASL Gatherings Schedule",
-                              images:( process.env.PUBLIC_URL +  "/assets/images/design/cbtl_1.png"),
+                              images:( process.env.PUBLIC_URL +  "/assets/images/design/CBTL_1_E.png"),
                               alt: "poster with contact info and schedule for ASL Gatherings.",
                               description: "ASL Gatherings class Schedule for spring 2017.",
                               myDuty:"Graphic Designer.",
@@ -17,7 +17,7 @@
                             {
                               id: 1,
                                 title: "ASL Gatherings Schedule",
-                                images:( process.env.PUBLIC_URL +  "/assets/images/design/cbtl_2.jpg"),
+                                images:( process.env.PUBLIC_URL +  "/assets/images/design/CBTL_2.jpg"),
                                 alt: "poster with contact info and schedule for ASL Gatherings",
                                 description: "ASL Gatherings class Schedule for fall 2017.",
                                 myDuty:"Graphic Designer.",
@@ -29,7 +29,7 @@
                               {
                                 id: 2,
                                   title: "ASL Gatherings Schedule",
-                                  images:( process.env.PUBLIC_URL +  "/assets/images/design/cbtl_3.png"),
+                                  images:( process.env.PUBLIC_URL +  "/assets/images/design/CBTL_3.png"),
                                   alt: "poster with contact info and schedule for ASL Gatherings",
                                   description: "ASL Gathering class Schedule for fall 2016.",
                                   myDuty:"Photographer and Graphic Designer.",
@@ -40,7 +40,7 @@
                                 {
                                   id: 3,
                                     title: "Video Production Process",
-                                    images:( process.env.PUBLIC_URL +  "/assets/images/design/cbtl_5.jpg"),
+                                    images:( process.env.PUBLIC_URL +  "/assets/images/design/CBTL_5.jpg"),
                                     alt: "a G with video production process steps.",
                                     description: "CBTL's Video Production Request Process.",
                                     myDuty:"Graphic Designer.",
