@@ -37,8 +37,8 @@ Your browser does not support the video tag.
   <ul >
 
 
-    <NavLink className="navbar-item button is-info mr-2" to="/portfolio"><i class="fa-regular fa-address-card mr-1  "></i>Portfolio</NavLink>
-    <NavLink className="navbar-item button is-success " to="/aboutme"><i class="fa-regular fa-address-card mr-1  "></i>About Me</NavLink>
+    <NavLink className="navbar-item   mr-2 navbar-item-portfolio" to="/portfolio"><i class="fa-regular fa-address-card mr-1  "></i>Portfolio</NavLink>
+    <NavLink className="navbar-item navbar-item-portfolio   " to="/aboutme"><i class="fa-regular fa-address-card mr-1 navbar-item-portfolio "></i>About Me</NavLink>
 
 
   </ul>

@@ -1,7 +1,6 @@
 import {NavLink, Link} from 'react-router-dom';
 import gears from "../assets/videos/gears.mp4"
-import inc2 from '../assets/images/gifs/inc2.gif'
-
+import inc2 from '../assets/gifs/inc2.gif'
 
 
 
@@ -29,7 +28,7 @@ Your browser does not support the video tag.
 <p className="  "> API Projects</p>
 </NavLink>
   </div>
-  <div className="column has-background-black  fade-in-2">
+  <div className="column has-background-grey-dark  fade-in-2">
   <Link className="navbar-item navbar-item-portfolio  " to="/bootcamp">
     <i className="fa-solid  fa-graduation-cap fa-2x mb-2 " aria-hidden="true"></i>
  <p className=" ">Bootcamp</p></Link>
@@ -43,10 +42,9 @@ Your browser does not support the video tag.
   
   <div className="columns">
   <div className="column i has-background-link fade-in-2 is-justify-content-center is-align-items-center">
-  <figure >
-  <img src={inc2} alt="inclusion sign in ASL"  />
-</figure>
 
+
+  <img src={inc2} alt="inclusion sign in ASL"  />
 
   <Link className="navbar-item navbar-item-portfolio  "  to="/inclusion"> 
 
@@ -61,13 +59,15 @@ Your browser does not support the video tag.
   <div className="column has-background-info slide-text2">
 
   <Link className="navbar-item navbar-item-portfolio   " to="/designs">  
-  <i className="fa-solid mb-2 fa-paintbrush fa-2x mb-2 " aria-hidden="true"></i>
+  <i className="fa-solid mb-2 fa-paintbrush fa-2x mb-2  " aria-hidden="true"></i>
  <p className=" ">Graphic Design</p></Link>
   </div>
+
+
   <div className="column has-background-black slide-text">
-  <Link className="navbar-item navbar-item-portfolio   " to="/engineering">  
-  <i class="fa-solid fa-cog fa-spin fa-3x"></i>
-  <i class="fa-solid fa-cog fa-spin fa-spin-reverse fa-1x mr-1"></i>
+  <Link className="navbar-item navbar-item-portfolio    " to="/engineering">  
+  <i class="fa-solid fa-cog fa-spin fa-2x"></i>
+  <i class="fa-solid fa-cog fa-spin fa-spin-reverse  "></i>
 
  <p className=" "> AT Engineering</p></Link>
   </div>

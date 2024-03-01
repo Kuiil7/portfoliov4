@@ -10,9 +10,23 @@ const AboutMe = () => {
   <section className="hero  has-background-light is-fullheight">
 
 
-    <h1 className="is-size-1 has-text-centered">About Me </h1>
-    <h3 className="subtitle appear-text has-text-centered is-italic">(in English and American Sign Language)</h3>
 
+
+<div className="has-text-centered ">
+<p className="title is-1 has-text-centered mt-2 mb-0">About Me - J. Merino </p>
+<p className="is-size-3 has-text-centered ">
+<a className="ml-1 " href="mailto:jgamerino@gmail.com">
+  <i className="fa-solid fa-envelope fa-1x mr-1"></i></a>
+
+<a  href="https://github.com/kuiil7"><i className="fab fa-github fa-1x "></i> </a>
+
+<a href="https://www.linkedin.com/in/joe-merino-8298b6193/"><i className="fab fa-linkedin fa-1x "></i> </a>
+
+  
+   </p>
+
+
+</div>
 
   <div className="hero-body">
     <div className="">

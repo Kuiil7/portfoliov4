@@ -258,14 +258,19 @@ html, body {
 
 
 a:link {
-  color: blue;
+  color: hsl(171, 100%, 41%)
 }
 
 a:visited {
-  color:black;
+  color:hsl(0, 0%, 71%);
 }
 
 
 .navbar-item-portfolio:visited  {
+  color:white;
+}
+
+
+.navbar-item-portfolio:link  {
   color:white;
 }
