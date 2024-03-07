@@ -13,7 +13,7 @@ const AboutMe = () => {
 
 
 <div className="has-text-centered ">
-<p className="title is-1 has-text-centered mt-2 mb-0">About Me - J. Merino </p>
+<p className="title is-3 has-text-centered mt-2 mb-0">About Me - J. Merino </p>
 <p className="is-size-3 has-text-centered ">
 <a className="ml-1 " href="mailto:jgamerino@gmail.com">
   <i className="fa-solid fa-envelope fa-1x mr-1"></i></a>
@@ -32,13 +32,13 @@ const AboutMe = () => {
     <div className="">
 
 
-<div class="columns is-flex-wrap-wrap   ">
+<div class="columns is-flex-wrap-wrap has-text-centered  ">
 
   <div class="column is-4">
     
   <span>
 
-    <p className="title appear-text is-3">Accessibility</p>
+    <p className="title appear-text is-3 ">Accessibility</p>
     <p>As a native of the Dominican Republic, I lost my hearing at a young age before emigrating to the United States. Language and communication is something I intentionally focus on every day given this background as a trilingual individual. In my professional career I have confronted the challenge of how to leverage English, Spanish, and American Sign Language to disseminate information in in the areas of Sales and Marketing. These challenges could not have been overcome without self-taught skills that I have acquired over time such as Information Technology, Web Design and Development, Graphic Design, and Video Production skills to name a few.
 </p>
     </span>

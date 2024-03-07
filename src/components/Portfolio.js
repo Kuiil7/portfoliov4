@@ -44,10 +44,8 @@ Your browser does not support the video tag.
   <div className="column i has-background-link fade-in-2 is-justify-content-center is-align-items-center">
 
 
-  <img src={inc2} alt="inclusion sign in ASL"  />
-
   <Link className="navbar-item navbar-item-portfolio  "  to="/inclusion"> 
-
+  <i class="fa-solid fa-hands-asl-interpreting fa-2x"></i>
 <span><p>Inclusion</p></span>
 
  </Link>
