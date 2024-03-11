@@ -18,7 +18,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build && npm run build",
+    "predeploy": "npm run build",
     "add-domain": "echo \"jgamworks.com\" > build/CNAME",
     "deploy": "npm run add-domain && gh-pages -b gh-pages -d build",
     "start": " react-scripts start",
