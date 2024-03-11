@@ -18,10 +18,10 @@ Your browser does not support the video tag.
 <div className="overlay  "></div>
     
 <div className="has-text-centered  ">       
-          <i class="fa-solid  mr-5 fa-6x p-5 fa-brain  appear-text4 has-text-danger"></i>
-        <i class="fa-solid  mr-5 fa-6x fa-ear-deaf appear-text5 has-text-info"></i>
-        <i class="fa-solid  mr-5 fa-6x fa-wheelchair-move appear-text6 has-text-success"></i>
-        <i class="fa-solid   fa-6x fa-eye appear-text7 has-text-warning"></i>
+          <i class="fa-solid  mr-5 fa-6x appear-text4 p-5 fa-brain   has-text-danger"></i>
+        <i class="fa-solid  mr-5 fa-6x appear-text fa-ear-deaf  has-text-info"></i>
+        <i class="fa-solid  mr-5 fa-6x appear-text4 fa-wheelchair-move t has-text-success"></i>
+        <i class="fa-solid   fa-6x appear-text fa-eye  has-text-warning"></i>
         </div>
     
         <p  className="subtitle is-6 slide-text ml-2 mb-1 mt-2 has-text-centered has-text-white  " > It is time to get out of the dark and fill the gap within the disability space.</p>
