@@ -1,7 +1,7 @@
 {
-  "name": "portfoliov4",
+  "name": "jgamworks.com",
   "version": "0.1.0",
-  "homepage": "https://kuiil7.github.io/portfoliov4/",
+  "homepage": "https://kuiil7.github.io/",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
