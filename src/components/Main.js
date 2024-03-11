@@ -24,8 +24,8 @@ Your browser does not support the video tag.
         <i class="fa-solid   fa-6x appear-text fa-eye  has-text-warning"></i>
         </div>
     
-        <p  className="subtitle is-6 slide-text ml-2 mb-1 mt-3 has-text-centered has-text-white  " > It is time to get out of the dark and fill the gap within the disability space.</p>
-    
+        <p  className="subtitle is-6 slide-text ml-2 mb-1 mt-3 has-text-centered has-text-white  " > It is time to get out of the dark a</p>
+        <p  className="subtitle is-6 slide-text2 ml-2 mb-1  has-text-centered has-text-white  " > and fill the gap within the disability space.</p>
         <p  className="is-italic appear-text   has-text-centered has-text-white"> -jm.</p>
        
         <div className="has-text-centered  ">
