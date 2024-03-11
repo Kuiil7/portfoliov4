@@ -20,6 +20,7 @@
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -b gh-pages -d build",
+    "add-domain": "echo \"jgamworks.com\" > build/CNAME",
     "start": " react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
