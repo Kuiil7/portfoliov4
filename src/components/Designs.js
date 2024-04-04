@@ -2,8 +2,7 @@ import React from 'react';
 import Card2 from '../layout/cards/Card2'
 import Card3 from '../layout/cards/Card_pdf'
 import {CBTLData} from '../assets/data/CBTLData';
-import {ATTData} from '../assets/data/ATTData';
-import {ATTData2} from '../assets/data/ATTData2';
+
 import {SCData} from '../assets/data/SCData';
 import {YPData} from '../assets/data/YPData';
 import {PERData} from '../assets/data/PERData';
@@ -108,6 +107,13 @@ dimension={PERData.dimension}
  </div>
 
 
+ <h2 className="title  ml-4"></h2>
+
+ <div className="columns is-flex-wrap-wrap px-3">
+
+
+
+ </div>
 
 
 
