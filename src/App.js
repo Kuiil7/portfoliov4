@@ -8,7 +8,7 @@ import AboutMe from "./components/AboutMe";
 import Inclusion from "./components/Inclusion";
 import Bootcamp from "./components/Bootcamp";
 import Static from "./components/Static";
-import Designs from "./components/Designs"
+import Designs1 from "./components/Designs1"
 import Games from "./components/Games";
 import Header from "./components/Header"
 import Engineering from "./components/Engineering";
@@ -30,7 +30,7 @@ const App = () =>{
         <Route path="inclusion" element={<Inclusion/>} />
         <Route path="bootcamp" element={<Bootcamp/>} />
         <Route path="static" element={<Static/>} />
-        <Route path="designs" element={<Designs/>} />
+        <Route path="designs" element={<Designs1/>} />
         <Route path="games" element={<Games/>} />
         <Route path="engineering" element={<Engineering/>} />
         <Route path="main_bkg" element={<MainBkg/>} />
