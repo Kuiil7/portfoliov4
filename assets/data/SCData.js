@@ -39,7 +39,7 @@
                                               {
                                                 id: 3,
                                                   title: "Schuchaman Center",
-                                                  images:( process.env.PUBLIC_URL +  "/assets/images/design/SC_8.png"),
+                                                  images:( process.env.PUBLIC_URL +  "/assets/images/design/sc_8.png"),
                                                   alt: "Full size banner with the words - Deaf Heritage Day in blue and green",
                                                   description: "Schuchman Center's pull-up display banner.",
                                                   myDuty:"Graphic Designer.",
@@ -50,7 +50,7 @@
                                                 {
                                                   id: 4,
                                                     title: "Deaf NYC Stories",
-                                                    images:( process.env.PUBLIC_URL +  "/assets/images/design/SC_5.png"),
+                                                    images:( process.env.PUBLIC_URL +  "/assets/images/design/sc_5.png"),
                                                     alt: "Schuchman Center hosted event",
                                                     description: "Postcard for Schuchman Center's hosted event.",
                                                     myDuty:"Graphic Designer.",
@@ -61,7 +61,7 @@
                                                         {
                                                   id: 5,
                                                     title: "SC's Official Opening",
-                                                    images:( process.env.PUBLIC_URL +  "/assets/images/design/SC_7.jpg"),
+                                                    images:( process.env.PUBLIC_URL +  "/assets/images/design/sc_7.jpg"),
                                                     alt: "Schuchman Center hosted event",
                                                     description: "A letter for Schuchman Center's hosted event.",
                                                     myDuty:"Graphic Designer.",
@@ -72,7 +72,7 @@
                                                   {
                                                     id: 6,
                                                       title: "Deaf Heritage Day",
-                                                      images:( process.env.PUBLIC_URL +  "/assets/images/design/SC_8.png"),
+                                                      images:( process.env.PUBLIC_URL +  "/assets/images/design/sc_8.png"),
                                                       alt: "Schuchman Center hosted event",
                                                       description: "A letter for Schuchman Center's hosted event.",
                                                       myDuty:"Graphic Designer.",
