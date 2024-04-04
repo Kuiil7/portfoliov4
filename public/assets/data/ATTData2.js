@@ -12,7 +12,7 @@
    bziltWith: "Illustrator and Photoshop.",
    dimension: "47x83 in",
    status: "Completed",
-   images:( process.env.PUBLIC_URL +  "/assets/images/design/att_2.png"),
+   images:( process.env.PUBLIC_URL +  "/assets/images/design/att_2.1.png"),
    alt: "poster with capturing deaf heritage day caption and 6 different photos of people in panel, in space, and presenting. color is blue and green with white font",
 
    },
@@ -25,7 +25,7 @@
     builtWith: "Illustrator and Photoshop.",
    dimension: "47x83 in",
    status: "Completed",
-   images:( process.env.PUBLIC_URL +  "/assets/images/design/att_3.png"),
+   images:( process.env.PUBLIC_URL +  "/assets/images/design/att_3.1.png"),
    alt: "full size pull-up display banner with att relay 7-1-1 on it",
 
    },
@@ -39,7 +39,7 @@
     builtWith: "Illustrator and Photoshop.",
     dimension: "half-fold",
     status: "Completed",
-    images:( process.env.PUBLIC_URL +  "/assets/images/design/att_4.png"),
+    images:( process.env.PUBLIC_URL +  "/assets/images/design/att_4.1.png"),
     alt: "ad with 4 people re short stories seminar",
 
    },
