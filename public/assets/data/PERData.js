@@ -5,7 +5,7 @@
    {
       id: 0,
       title: "Physical Education & Rec",
-      images:( process.env.PUBLIC_URL +  "/assets/images/design/PE_1.png"),
+      images:( process.env.PUBLIC_URL +  "/assets/images/design/pe_1.png"),
       alt: "Physical Education & Recreation",
       description: "Physical Education and Recreation recruitment poster.",
       myDuty:"Photographer and Graphic Designer.",

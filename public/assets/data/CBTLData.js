@@ -85,7 +85,7 @@
                                         {
                                           id: 7,
                                           title: "Graduate Student Orientation",
-                                          images:( process.env.PUBLIC_URL +  "/assets/images/design/CBTL_11.jpg"),
+                                          images:( process.env.PUBLIC_URL +  "/assets/images/design/cbtl_11.jpg"),
                                           alt: "ASL Gatherings Spring calendar schedule with people sitting in a circular table",
                                           description: "CBTL's ASL Gatherings Calendar Spring 2018.",
                                           myDuty:"Graphic Designer.",
