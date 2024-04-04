@@ -2,7 +2,8 @@ import React from 'react';
 import Card2 from '../layout/cards/Card2'
 import Card3 from '../layout/cards/Card_pdf'
 import {CBTLData} from '../assets/data/CBTLData';
-
+import {ATTData} from '../assets/data/ATTData';
+import {ATTData2} from '../assets/data/ATTData2';
 import {SCData} from '../assets/data/SCData';
 import {YPData} from '../assets/data/YPData';
 import {PERData} from '../assets/data/PERData';
@@ -107,11 +108,46 @@ dimension={PERData.dimension}
  </div>
 
 
- <h2 className="title  ml-4"></h2>
+ <h2 className="title  ml-4">AT&T</h2>
 
  <div className="columns is-flex-wrap-wrap px-3">
 
-
+{ATTData.map(ATTData => (
+<div className="column is-half" key={ATTData.id}>
+<Card3
+title={ATTData.title}
+myDuty={ATTData.myDuty}
+description={ATTData.description}
+builtWith={ATTData.builtWith}
+images={ATTData.images}
+alt={ATTData.alt}
+repo={ATTData.repo}
+demo={ATTData.demo}
+url={ATTData.url}
+status={ATTData.status}
+dimension={ATTData.dimension}
+iframe={ATTData.iframe}
+/>
+  </div>
+))}
+{ATTData2.map(ATTData2 => (
+<div className="column is-half" key={ATTData2.id}>
+<Card2
+title={ATTData2.title}
+myDuty={ATTData2.myDuty}
+description={ATTData2.description}
+builtWith={ATTData2.builtWith}
+images={ATTData2.images}
+alt={ATTData2.alt}
+repo={ATTData2.repo}
+demo={ATTData2.demo}
+url={ATTData2.url}
+status={ATTData2.status}
+dimension={ATTData2.dimension}
+iframe={ATTData2.iframe}
+/>
+  </div>
+))}
 
  </div>
 
