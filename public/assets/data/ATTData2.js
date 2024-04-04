@@ -24,7 +24,7 @@
     builtWith: "Illustrator and Photoshop.",
    dimension: "47x83 in",
    status: "Completed",
-   images:( process.env.PUBLIC_URL +  "/assets/images/design/att_3.png"),
+   images:( process.env.PUBLIC_URL + "/assets/images/design/att_3.png"),
    alt: "full size pull-up display banner with att relay 7-1-1 on it",
 
    },
