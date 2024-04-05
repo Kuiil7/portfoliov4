@@ -56,7 +56,7 @@ Your browser does not support the video tag.
   
   <div className="column has-background-info slide-text2">
 
-  <Link className="navbar-item navbar-item-portfolio   " to="/designs">  
+  <Link className="navbar-item navbar-item-portfolio   " to="/gallery">  
   <i className="fa-solid mb-2 fa-paintbrush fa-2x mb-2  " aria-hidden="true"></i>
  <p className=" ">Graphic Design</p></Link>
   </div>
