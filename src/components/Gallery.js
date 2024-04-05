@@ -160,7 +160,7 @@ const Gallery = () => {
 
 
 <section className="hero  is-fullheight has-background-white-ter">
-<p className="has-text-centered is-size-1">Graphic Design Demos</p>
+<p className="has-text-centered is-size-3">Graphic Design Demos</p>
 
   <div className="hero-body">
     
