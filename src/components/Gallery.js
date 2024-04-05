@@ -147,29 +147,14 @@ const Gallery = () => {
             thumbnailAlt:"graduate student orientation schedule",
             note:"cbtl_11.png",
           },
-        
-     
       ];
 
-
-
     return (
-   
 <>
-
-
-
 <section className="hero  is-fullheight has-background-white-ter">
 <p className="has-text-centered is-size-3">Graphic Design Demos</p>
-
   <div className="hero-body">
-    
-    <div className="card">
-    <ImageGallery 
-    items={images} 
-
-    />
-    </div>
+    <div className="card"><ImageGallery items={images} /></div>
   </div>
 </section>
 </>

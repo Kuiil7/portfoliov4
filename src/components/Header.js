@@ -40,7 +40,6 @@ const Header = () => {
     <Link className="navbar-item" to="/games"> Games</Link>
     <Link className="navbar-item" to="/API">API</Link>
     <Link className="navbar-item" to="/gallery">Graphic Design</Link>
-
         </div>
       </div>
       <NavLink className="navbar-item " to="/aboutme">About Me</NavLink>

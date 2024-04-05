@@ -6,7 +6,6 @@ const Engineering = () => {
 <>
 <main aria-labelledby="engineering projects">
 <section className="hero is-fullheight overlay3">
-
 <video autoPlay={true} muted loop className="main_bkg_vid">
 <source src={moving_head} type="video/mp4"/>
 Your browser does not support the video tag.

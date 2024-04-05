@@ -1,8 +1,5 @@
 import jigsaw3 from "../assets/videos/jigsaw3.mp4"
-
-import Main
- from "./Main";
-
+import Main from "./Main";
 
 
 const Main_bkg = () => {

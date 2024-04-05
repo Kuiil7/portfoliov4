@@ -1,12 +1,12 @@
 
 import Header from "./Header";
 import Main from "./Main";
-function Home() {
+
+const Home = () => {
   return (
     < >
       <Header/>
       <Main/>
-    
     </>
   );
 }
