@@ -60,7 +60,7 @@ const AboutMe = () => {
 
    </div>
   </div>
-
+  <Icons />
   </section>
 
     </>
