@@ -3,17 +3,17 @@ const Icons = () => {
     const data = [
         {
             id: 1,
-          logo: "https://i.imgrz.com/Yjwf.png",
+          logo: "https://i.imgur.com/Q42urN5.png",
           alt: "HTML logo"
        },
         {
           id: 2,
-          logo: "https://i.imgrz.com/YAlk.png",
+          logo: "https://i.imgur.com/Q9jOnFI.png",
           alt: "CSS logo"
        },
         {
           id: 3,
-          logo: "http://i.imgrz.com/YLb5.png",
+          logo: "https://i.imgur.com/jyAUwXc.png",
           alt: "Javascript logo"
       },
       {
@@ -23,13 +23,13 @@ const Icons = () => {
       },
       {
           id: 5,
-          logo: "https://i.imgrz.com/Y88z.png",
+          logo: "https://i.imgur.com/TJrR4iB.png",
           alt: "MongoDB logo"
           },
 
           {
           id: 6,
-          logo: "https://i.imgrz.com/YQud.png",
+          logo: "https://i.imgur.com/Qau212o.png",
           alt: "ExpressJS logo"
       },
       {
@@ -39,27 +39,27 @@ const Icons = () => {
       },
       {
           id: 8,
-          logo: "https://i.imgrz.com/YgIw.png",
+          logo: "https://i.imgur.com/CfCkpES.png",
           alt: "NPM logo"
       },
       {
           id: 9 ,
-          logo: "https://i.imgrz.com/YldS.png",
+          logo: "https://i.imgur.com/RO1tU02.png",
           alt: "ReactJs logo"
       },
       {
           id: 10,
-          logo: "https://i.imgrz.com/YpbV.png",
+          logo: "https://i.imgur.com/TjzofKf.png",
           alt: "Adobe Illustrator logo"
       },
       {
           id: 11,
-          logo: "https://i.imgrz.com/Y27P.jpg",
+          logo: "https://i.imgur.com/Ctc81jK.png",
           alt: "Photoshop logo"
       },
       {
           id: 12,
-          logo: "https://i.imgrz.com/RMw0.png",
+          logo: "https://i.imgur.com/zLPKdPl.png",
           alt: "Final Cut Pro logo"
       }
       ];
@@ -71,7 +71,7 @@ return (
 {data.slice(0,6).map((data) => (
 <div className="column slide-text" key={data.id}>
 <figure className="image is-64x64" >
-<img src={data.logo} alt={data.alt} />
+<img  src={process.env.PUBLIC_URL + data.logo}alt={data.alt} />
 </figure>
 </div>
 ))}
