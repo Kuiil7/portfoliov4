@@ -1,12 +1,11 @@
 import {NavLink, Link} from 'react-router-dom';
 import gears from "../assets/videos/gears.mp4"
-import inc2 from '../assets/gifs/inc2.gif'
-
 
 
 const Portfolio = ()=> {
     return (
       <section className="hero is-fullheight  ">   
+  
         <video autoPlay={true} muted loop className="main_bkg_vid">
           <source src={gears} type="video/mp4"/>
             Your browser does not support the video tag.
