@@ -1,7 +1,9 @@
 
 import React from 'react'
 import ReactPlayer from 'react-player'
-import Icons from './Icons'
+
+import Icons from '../assets/icons/Icons'
+
 import mammoth from '../assets/images/portrait/mammoth.png'
 import tresojos from '../assets/images/portrait/tresojos.jpg'
 import sc from '../assets/images/portrait/sc.jpg'
