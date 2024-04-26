@@ -149,16 +149,6 @@ html, body {
   align-items: center;
 }
 
-.background-image {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  overflow: hidden; 
-}
 
 
 #rcorners {
@@ -235,7 +225,6 @@ html, body {
   align-items: center;
 }
 
-
 .centered-text {
   text-align: center;
 }
@@ -259,7 +248,7 @@ html, body {
 }
 
 .main_bkg_vid {
-  object-fit: contain;
+  object-fit: cover;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -268,9 +257,18 @@ html, body {
   z-index: -1;
 }
 
-.mammoth {
-  opacity: .9;
+.background-image {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden; 
 }
+
+
 a:link {
   color: hsl(171, 100%, 41%)
 }
