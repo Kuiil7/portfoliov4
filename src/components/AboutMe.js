@@ -1,10 +1,7 @@
 
 import React from 'react'
-import ReactPlayer from 'react-player'
-import Icons from '../assets/icons/Icons'
 import mammoth2 from '../assets/images/portrait/mammoth2.jpg'
-import tresojos from '../assets/images/portrait/tresojos.jpg'
-import sc from '../assets/images/portrait/sc.jpg'
+
 
 const AboutMe = () => {
   return (
