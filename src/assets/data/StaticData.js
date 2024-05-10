@@ -25,7 +25,7 @@
           images:( process.env.PUBLIC_URL +  "/assets/images/repos/geah_group.png"),
           alt: "El fundador sostiene tres botellas de vitamina.",
           repo: "https://github.com/Kuiil7/geah_group" ,
-          demo:"https://geahgroup.pe",
+          demo:"https://kuiil7.github.io/geah_group/",
           description: "A multibusiness website consisting of esthetic medicine, health and beauty, and pharmaceuticals based in Lima,Peru.",
           myDuty:"Sole maintainer.",
           builtWith: "Bulma.",
