@@ -28,8 +28,8 @@ Your browser does not support the video tag.
         <div className="has-text-centered  ">
        <div class="tabs is-centered ">   
   <ul >
-    <NavLink className="navbar-item   mr-2 navbar-item-portfolio" to="/portfolio"><i class="fa-regular fa-address-card mr-1  "></i>Portfolio</NavLink>
-    <NavLink className="navbar-item navbar-item-portfolio   " to="/aboutme"><i class="fa-regular fa-address-card mr-1 navbar-item-portfolio "></i>About Me</NavLink>
+    <NavLink className="navbar-item   mr-2 navbar-item-portfolio has-text-white" to="/portfolio"><i class="fa-regular fa-address-card mr-1  "></i>Portfolio</NavLink>
+    <NavLink className="navbar-item navbar-item-portfolio  has-text-white " to="/aboutme"><i class="fa-regular fa-address-card mr-1 navbar-item-portfolio  "></i>About Me</NavLink>
   </ul>
 </div>
       </div>
