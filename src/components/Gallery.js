@@ -25,13 +25,6 @@ const Gallery = () => {
           thumbnailAlt:"ad with 4 people re short stories seminar",
           note:"att_4.1.png",
         },
-        {
-            original: "https://i.imgur.com/WYNhMiV.png",
-            thumbnail: "https://i.imgur.com/WYNhMiV.png",
-            originalAltL:"",
-            thumbnailAlt:"",
-            note:"cbtl_3.png",
-          },
           {
             original: "https://i.imgur.com/f2mJ8u0.png",
             thumbnail: "https://i.imgur.com/f2mJ8u0.png",
@@ -45,13 +38,6 @@ const Gallery = () => {
             originalAltL:"CBTL's ASL Gatherings Calendar Spring 2018.",
             thumbnailAlt:"CBTL's ASL Gatherings Calendar Spring 2018.",
             note:"cbtl_5.png",
-          },
-          {
-            original: "https://i.imgur.com/Dy16JKr.jpg",
-            thumbnail: "https://i.imgur.com/Dy16JKr.jpg",
-            originalAltL:"ASL Gatherings Spring calendar schedule with people sitting in a circular table.",
-            thumbnailAlt:"ASL Gatherings Spring calendar schedule with people sitting in a circular table.",
-            note:"cbtl_2.jpg",
           },
           {
             original: "https://i.imgur.com/zbRqQzO.png",
