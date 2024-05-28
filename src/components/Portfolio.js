@@ -22,11 +22,7 @@ const Portfolio = ()=> {
             <p > API Projects</p>
         </NavLink>
       </div>
-  <div className="column has-background-grey-dark  fade-in-2">
-    <NavLink className="navbar-item navbar-item-portfolio has-text-white " to="/bootcamp">
-      <i className="fa-solid  fa-graduation-cap fa-2x mb-2" aria-hidden="true"></i>
-        <p className=" ">Bootcamp</p></NavLink>
-  </div>
+
   <div className="column  has-background-danger slide-text2">
     <Link className="navbar-item navbar-item-portfolio has-text-white " to="/static">  
       <i className="fa-solid fa-display fa-2x mb-2 mr-2 " aria-hidden="true"></i>
