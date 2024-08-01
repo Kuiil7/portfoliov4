@@ -21,7 +21,7 @@
           images: ( process.env.PUBLIC_URL + "/assets/images/repos/mymovies_ss.png"),
           alt: "screenshot of mymovies app",
           repo: "https://github.com/Kuiil7/mymovies" ,
-          demo:"https://mymovies-amber.vercel.app/",
+          demo:"https://kuiil7.github.io/mymovies/",
           description: "A website where user can search and find movies, TV shows, and actors along with trending, popularity, and other categories",
           myDuty: "Sole maintainer.",
           builtWith: "Luxon, Axios, dotenv, and Bulma and https://www.themoviedb.org/",
@@ -40,7 +40,7 @@
           description: "Search and find microbreweries across the United States",
           myDuty:"Sole maintainer",
           builtWith: "Bulma, FontAwesome, Luxon, dotenv, and https://www.openbrewerydb.org/",
-          demo: "https://wonderful-mccarthy-55ff72.netlify.app/",
+          demo: "https://kuiil7.github.io/wmb/",
           url:"https://www.openbrewerydb.org/",
           status: null,
           notes: null
