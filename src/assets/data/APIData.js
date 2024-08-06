@@ -45,5 +45,19 @@
           status: null,
           notes: null
           },
+          {
+            id: 3,
+            title: "MyNews",
+            images:( process.env.PUBLIC_URL +  "/assets/images/repos/mynews.png"),
+            repo:"https://github.com/Kuiil7/mynews",
+            alt: "screenshot of app",
+            description: "User can search and find U.S. news articles. Included 6 separate categories - Health, Entertainment, Sports, Science, Technology and Top Headlines onload.",
+            myDuty:"Sole maintainer",
+            builtWith: "Bulma, Express, FontAwesome, Luxon, dotenv, axios, cors, and https://newsapi.org/",
+            demo: "https://kuiil7.github.io/mynews/",
+            url: "https://newsapi.org/g/",
+            status: null,
+            notes: null
+            },
   ];
 
