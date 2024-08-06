@@ -17,14 +17,14 @@ const Portfolio = ()=> {
               <p className="title has-text-white appear-text">Projects and Demos</p>
    <div className="columns  ">
     <div className="column has-background-primary  slide-text ">
-      <NavLink className="navbar-item navbar-item-portfolio has-text-white  " to="/api"  >  
+      <NavLink className="navbar-item navbar-item-portfolio  " to="/api"  >  
         <i class="fa-solid  fa-arrow-right-arrow-left fa-2x mb-2 mr-1  " aria-hidden="true"></i>
             <p > API Projects</p>
         </NavLink>
       </div>
 
   <div className="column  has-background-danger slide-text2">
-    <Link className="navbar-item navbar-item-portfolio has-text-white " to="/static">  
+    <Link className="navbar-item navbar-item-portfolio " to="/static">  
       <i className="fa-solid fa-display fa-2x mb-2 mr-2 " aria-hidden="true"></i>
         <p className=" ">Static Websites</p></Link>
   </div>
@@ -32,18 +32,18 @@ const Portfolio = ()=> {
       
   <div className="columns">
   <div className="column i has-background-link fade-in-2 is-justify-content-center is-align-items-center">
-  <Link className="navbar-item navbar-item-portfolio  has-text-white"  to="/inclusion"> 
+  <Link className="navbar-item navbar-item-portfolio "  to="/inclusion"> 
   <i class="fa-solid fa-hands-asl-interpreting fa-2x"></i><span><p>Inclusion</p></span>
  </Link>
   </div>
   
   <div className="column has-background-info slide-text2">
-    <Link className="navbar-item navbar-item-portfolio  has-text-white " to="/gallery">  
+    <Link className="navbar-item navbar-item-portfolio  " to="/gallery">  
       <i className="fa-solid mb-2 fa-paintbrush fa-2x mb-2  " aria-hidden="true"></i>
         <p className=" ">Graphic Design</p></Link>
   </div>
   <div className="column has-background-black slide-text">
-   <Link className="navbar-item navbar-item-portfolio  has-text-white  " to="/engineering">  
+   <Link className="navbar-item navbar-item-portfolio   " to="/engineering">  
      <i class="fa-solid fa-cog fa-spin fa-2x"></i>
       <i class="fa-solid fa-cog fa-spin fa-spin-reverse  "></i>
            <p className=" "> AT Engineering</p></Link>
