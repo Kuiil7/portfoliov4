@@ -215,11 +215,6 @@ html, body {
 }
 
 
-.hero-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .centered-text {
   text-align: center;
@@ -286,10 +281,55 @@ a:active {
 }
 
 .navbar-item {
-  color: #ffffff !important; 
+  color: #ffffff ; 
   transition: color 0.3s ease; 
 }
 
 .navbar-item:hover {
-  color: #000000 !important; 
+  color: #000000 ; 
+}
+
+.navbar-item2 {
+  color: black!important; 
+  transition: color 0.3s ease; 
+}
+
+.navbar-item2:hover {
+  color: blue!important; 
+}
+
+.navbar-item3 {
+  color: white!important; 
+  transition: color 0.3s ease; 
+}
+
+.navbar-item3:hover {
+  color: black!important; 
+}
+
+
+.hero {
+  background: none; 
+}
+
+.hero-body {
+  color: white;
+}
+
+.title, .subtitle {
+  position: relative;
+  z-index: 3; 
+}
+
+.level {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+}
+
+.level-item {
+  margin: 0 15px; /* Optional: Add spacing between items */
+}
+
+.heading {
+  font-weight: bold;
 }

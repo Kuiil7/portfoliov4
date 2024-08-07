@@ -1,23 +1,25 @@
 
 import React from 'react'
-import mammoth2 from '../assets/images/portrait/mammoth2.jpg'
 
 
 const AboutMe = () => {
   return (
     <>
 <section className="hero has-background-light is-fullheight ">
-
-
-   
-<div className="hero-body ">
+<div className="hero-body " style={{width: "65%" }}>
     <div className=" p-4 mammoth ">
       <div>
-      <p class="subtitle is-5">PM | Engineering | | Linguistics | Web Design/Programming | Graphic Design | Video Productions | IT </p>
-      <p class="subtitle is-6">I am just a ward-of-state guy doing its own thing. I am passionate about technical creativity and innovations especially in the accessibility and inclusion space. I have had the privilege of working with various companies, universities, and non-profits with each facing the same challenges - how to make digital content more inclusive for Deaf invividuals. For that reason, I have armed myself with all the skills necessary to make it happen. However, my skills are not Deaf-centric limited but beyond as you can see in my portfolio. Feel free to reach out for more. </p>
-          <p class="subtitle is-6">J. Merino</p>
+        
+      <p className="subtitle is-4 is-italic">"I am passionate about technical creativity and innovation, particularly in the accessibility and inclusion space. I have had the privilege of working with various companies, universities, and non-profits, each facing the common challenge of making digital content more inclusive for everyone. For that reason, I have equipped myself with the skills necessary to overcome these challenges." 
 
-      <p className="is-size-3 has-text-centered ">
+      </p>
+          <p className="subtitle is-6">- J. Merino</p>
+<div >   <p className="subtitle is-5">PM | Engineering | | Linguistics | Web Design and Development | Graphic Design | Video Productions | IT </p>
+
+<p className="subtitle is-5">
+<strong>Skills: </strong>JIRA, Asana, SEO optimization, social media marketing, AWS, Azure, Google Cloud, Wireshark, GIT, JavaScript, APIs, debugging, Linux, CMS, Video Editing, Illustrator, Photoshop, InDesign, Familiarity with Python, SQL, MongoDB, React, HTML, CSS, technical support, troubleshooting, and WordPress.
+</p></div>
+      <p className="is-size-3 ">
         <a className="ml-1 " href="mailto:jgamerino@gmail.com">
           <i className="fa-solid fa-envelope fa-1x mr-1"></i></a>
             <a  href="https://github.com/kuiil7"><i className="fab fa-github fa-1x "></i> </a>

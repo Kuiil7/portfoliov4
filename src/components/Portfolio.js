@@ -1,57 +1,57 @@
-import {NavLink, Link} from 'react-router-dom';
-import gears from "../assets/videos/gears.mp4"
+import {Link} from 'react-router-dom';
 
 
 const Portfolio = ()=> {
     return (
-      <section className="hero is-fullheight  ">   
+      <>
+ <section className="hero has-background-light is-fullheight">
+  <div className="hero-body container has-text-centered " style={{width: "40%" }}>
+    <div className="" >
+      <p className="title">Project Demos</p>
   
-        <video autoPlay={true} muted loop className="main_bkg_vid">
-          <source src={gears} type="video/mp4"/>
-            Your browser does not support the video tag.
-          </video>
-
-        <div className="hero-body  ">
-          <div className=" has-text-centered ">
-           <div className="overlay  "></div>
-              <p className="title has-text-white appear-text">Projects and Demos</p>
-   <div className="columns  ">
-    <div className="column has-background-primary  slide-text ">
-      <NavLink className="navbar-item navbar-item-portfolio  " to="/api"  >  
-        <i class="fa-solid  fa-arrow-right-arrow-left fa-2x mb-2 mr-1  " aria-hidden="true"></i>
+      <nav className="level">
+  <div className="level-item has-text-centered">
+    <div>
+      <p className="heading">   <Link className="navbar-item2  " to="/api"  >  
+        <i className="fa-solid  fa-arrow-right-arrow-left fa-5x mb-2 mr-1  " aria-hidden="true"></i>
             <p > API Projects</p>
-        </NavLink>
-      </div>
-
-  <div className="column  has-background-danger slide-text2">
-    <Link className="navbar-item navbar-item-portfolio " to="/static">  
-      <i className="fa-solid fa-display fa-2x mb-2 mr-2 " aria-hidden="true"></i>
-        <p className=" ">Static Websites</p></Link>
+        </Link></p>
+    </div>
   </div>
-  </div>
-      
-  <div className="columns">
-  <div className="column i has-background-link fade-in-2 is-justify-content-center is-align-items-center">
-  <Link className="navbar-item navbar-item-portfolio "  to="/inclusion"> 
-  <i class="fa-solid fa-hands-asl-interpreting fa-2x"></i><span><p>Inclusion</p></span>
- </Link>
-  </div>
+  <div className="level-item has-text-centered">
+    <div>
+      <p className="heading"><Link className="navbar-item2 " to="/static">  
+      <i className="fa-solid fa-display fa-5x mb-2 mr-2 " aria-hidden="true"></i>
+        <p className=" ">Static Websites</p></Link></p>
   
-  <div className="column has-background-info slide-text2">
-    <Link className="navbar-item navbar-item-portfolio  " to="/gallery">  
-      <i className="fa-solid mb-2 fa-paintbrush fa-2x mb-2  " aria-hidden="true"></i>
-        <p className=" ">Graphic Design</p></Link>
+    </div>
   </div>
-  <div className="column has-background-black slide-text">
-   <Link className="navbar-item navbar-item-portfolio   " to="/engineering">  
-     <i class="fa-solid fa-cog fa-spin fa-2x"></i>
-      <i class="fa-solid fa-cog fa-spin fa-spin-reverse  "></i>
-           <p className=" "> AT Engineering</p></Link>
+  <div className="level-item has-text-centered">
+    <div>
+ 
+ <p className="heading"><Link className="navbar-item2 " to="/inclusion">  
+      <i className="fa-solid fa-hands-asl-interpreting fa-5x mb-2 mr-2 " aria-hidden="true"></i>
+        <p className=" ">Inclusion</p></Link></p>
+  
+    </div>
   </div>
+  <div className="level-item has-text-centered">
+    <div>
+    <p className="heading"><Link className="navbar-item2 " to="/gallery">  
+      <i className="fa-solid mb-2 fa-paintbrush  fa-5x mb-2 mr-2 " aria-hidden="true"></i>
+        <p className=" ">Graphic Design</p></Link></p>
+  
+ 
+    </div>
   </div>
+</nav>
+    </div>
   </div>
-  </div>
-    </section>
+</section>
+
+
+      
+      </>
 
     );
   }

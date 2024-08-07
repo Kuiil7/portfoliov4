@@ -44,7 +44,7 @@ const Inclusion = () => {
 
     return (
 <>
-<section className="hero  is-fullheight has-background-white-ter">
+<section className="hero  is-fullheight has-background-white-ter is-flex is-align-items-center">
 <p className="has-text-centered is-size-3">Inclusion</p>
   <div className="hero-body">
     <div className="card"><ImageGallery items={images} />
