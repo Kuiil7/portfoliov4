@@ -48,13 +48,23 @@ const Inclusion = () => {
 <p className="has-text-centered is-size-3">Inclusion</p>
   <div className="hero-body">
     <div className="card"><ImageGallery items={images} />
-    <div class="columns is-flex p-5">
-    <div class="column">  <p >Demo: <a href="https://pub.lucidpress.com/520a802b-e3ae-4e0b-bf8b-0d56fe0b3aff" style={{color:"primary"}} >Newsletter #1</a></p></div>
-  <div class="column">  <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/Issue2">Newsletter #2</a></p></div>
-  <div class="column"> <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/ThirdIssue/">Newsletter #3</a></p></div>
-  <div class="column"> <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/FourthIssue/">Newsletter #4</a></p></div>
-  <div class="column"> <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/Issue5/">Newsletter #5</a></p></div>
-</div>
+    <div className="columns is-multiline is-flex p-5">
+            <div className="column is-one-fifth">
+              <p>Demo: <a href="https://pub.lucidpress.com/520a802b-e3ae-4e0b-bf8b-0d56fe0b3aff" style={{color: "primary"}}>Newsletter #1</a></p>
+            </div>
+            <div className="column is-one-fifth">
+              <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/Issue2">Newsletter #2</a></p>
+            </div>
+            <div className="column is-one-fifth">
+              <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/ThirdIssue/">Newsletter #3</a></p>
+            </div>
+            <div className="column is-one-fifth">
+              <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/FourthIssue/">Newsletter #4</a></p>
+            </div>
+            <div className="column is-one-fifth">
+              <p className="has-text-centered">Demo: <a href="https://pub.lucidpress.com/Issue5/">Newsletter #5</a></p>
+            </div>
+          </div>
     
     </div>
     

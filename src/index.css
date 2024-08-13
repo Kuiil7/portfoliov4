@@ -262,7 +262,7 @@ html, body {
 
 /* unvisited link */
 a:link {
-  color: hsl(171, 100%, 41%);
+  color: black;
 }
 
 /* visited link */
@@ -272,7 +272,7 @@ a:visited {
 
 /* mouse over link */
 a:hover {
-  color: blue;
+  color: hsl(171, 100%, 41%)	!important; 
 }
 
 /* selected link */
@@ -304,7 +304,15 @@ a:active {
 }
 
 .navbar-item3:hover {
+  color: hsl(171, 100%, 41%)	!important; 
+}
+.navbar-item4 {
   color: black!important; 
+  transition: color 0.3s ease; 
+}
+
+.navbar-item4:hover {
+  color: hsl(171, 100%, 41%)	!important; 
 }
 
 
@@ -332,4 +340,46 @@ a:active {
 
 .heading {
   font-weight: bold;
+}
+.background-paragraph {
+  background-color: black;
+  padding: 20px; 
+  color: white;
+  font-size: 1rem;
+  opacity: .8;
+  border-radius: 10px;
+
+}
+
+.hero-body2 {
+  width: 47%; /* Width for desktop */
+  margin-left: 0; /* Aligns the .hero-body to the left */
+  margin-right: auto; /* Centers the .hero-body within its container */
+  /* Ensure it's properly aligned to the left on desktop */
+}
+
+.background-paragraph2 {
+  max-width: 100%; /* Ensure the paragraph doesn’t exceed its container */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .hero-body2 {
+    width: 100%; /* Full width for mobile */
+    margin-left: 0; /* Full width on mobile means no need for left margin adjustment */
+    margin-right: 0; /* Remove any right margin */
+    padding: 0 5%; /* Optional: Add some padding for better spacing on mobile */
+  }
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 800px; /* Maximum width for larger screens */
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 100%; /* Full width on mobile devices */
+    padding: 0 10px; /* Adjust padding for mobile */
+  }
 }

@@ -12,7 +12,7 @@ const Header = () => {
     
     <nav className="navbar  " role="navigation" aria-label="main navigation"  >
     <div className="navbar-brand  " >
-    <NavLink className="navbar-item2 p-3 " to="/"> JGAMWORKS</NavLink>
+    <NavLink className="navbar-item4 p-3 " to="/"> JGAMWORKS</NavLink>
     <div
             onClick={() => {setisActive(!isActive)}}
             role="button"
@@ -31,18 +31,18 @@ const Header = () => {
      <div className="navbar-end " >
         <div className="navbar-item  " >
    <div className="navbar-item  has-dropdown is-hoverable ">
-   <NavLink className="navbar-item  " to="/portfolio">Portfolio</NavLink>
+   <NavLink className="navbar-item4  " to="/portfolio">Portfolio</NavLink>
     <div className="navbar-dropdown">
-    <Link className="navbar-item  " to="/api">APIs</Link>
-    <Link className="navbar-item " to="/bootcamp"> Bootcamp</Link>
-    <Link className="navbar-item " to="/inclusion">Inclusion </Link>
-    <Link className="navbar-item " to="/static"> Static Websites</Link>
-    <Link className="navbar-item " to="/games"> Games</Link>
-    <Link className="navbar-item " to="/API">API</Link>
-    <Link className="navbar-item " to="/gallery">Graphic Design</Link>
+    <Link className="navbar-item navbar-item4  " to="/api">APIs</Link>
+    <Link className="navbar-item navbar-item4 " to="/bootcamp"> Bootcamp</Link>
+    <Link className="navbar-item navbar-item4 " to="/inclusion">Inclusion </Link>
+    <Link className="navbar-item navbar-item4 " to="/static"> Static Websites</Link>
+    <Link className="navbar-item navbar-item4 " to="/games"> Games</Link>
+    <Link className="navbar-item navbar-item4 " to="/API">API</Link>
+    <Link className="navbar-item navbar-item4 " to="/gallery">Graphic Design</Link>
         </div>
       </div>
-      <NavLink className="navbar-item  " to="/aboutme">About Me</NavLink>
+      <NavLink className="navbar-item navbar-item4  " to="/aboutme">About Me</NavLink>
             </div>
           </div>
         </div>

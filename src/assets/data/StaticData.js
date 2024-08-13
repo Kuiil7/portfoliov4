@@ -30,8 +30,18 @@
           url:"N/A",
           status: "Suspended"
             },
-
-
+            {
+              id: 2,
+              title: "Turtle Island Hand Talk (TIHT)",
+              images:  process.env.PUBLIC_URL + "/assets/images/repos/tiht.png",
+              alt: "yellow/white landing page with two videos - large turtle and a female",
+              repo: "http://www.tiht.org",
+              demo:"http://www.tiht.org",
+              description: "Turtle Island Hand Talk website - Educating, empowering, advocating, encouraging peace & promoting international understanding through our Indigenous people (Deaf and all) in North America.",
+              builtWith: "WordPress",
+              url: null,
+              status: null
+                },
 
 
   ];
