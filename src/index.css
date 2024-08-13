@@ -315,6 +315,9 @@ a:active {
   color: hsl(171, 100%, 41%)	!important; 
 }
 
+.navbar-item4:active {
+  color: white!important; 
+}
 
 .hero {
   background: none; 
