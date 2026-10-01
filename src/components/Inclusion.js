@@ -8,34 +8,7 @@ const Inclusion = () => {
           <p className="has-text-centered is-size-3 mb-5">Inclusion</p>
 
           <div className="columns is-centered is-multiline">
-            <div className="column is-half">
-              <div
-                className="card p-5"
-                style={{ color: "#363636", height: "100%", borderTop: "4px solid #00d1b2" }}
-              >
-                <div className="has-text-centered">
-                  <i
-                    className="fa-solid fa-newspaper fa-4x mb-3"
-                    aria-hidden="true"
-                    style={{ color: "#00d1b2" }}
-                  ></i>
-                </div>
-                <p className="title is-5 has-text-centered" style={{ color: "#363636" }}>
-                  Gallaudet Graduate School Newsletters
-                </p>
-                <p className="subtitle is-6 has-text-centered" style={{ color: "#363636" }}>
-                  Graphic design, video production, and ePublication work for Gallaudet
-                  University's Graduate School — five issues, cover to cover.
-                </p>
-                <div className="has-text-centered">
-                  <Link className="button is-primary is-outlined" style={{ color: "#00d1b2", borderColor: "#00d1b2" }} to="/graduateschool">
-                    View the newsletters
-                  </Link>
-                </div>
-              </div>
-            </div>
-
-            <div className="column is-half">
+            <div className="column is-two-thirds">
               <div
                 className="card p-5"
                 style={{ color: "#363636", height: "100%", borderTop: "4px solid #00d1b2" }}
@@ -58,6 +31,33 @@ const Inclusion = () => {
                 <div className="has-text-centered">
                   <Link className="button is-primary is-outlined" style={{ color: "#00d1b2", borderColor: "#00d1b2" }} to="/sl2t">
                     Read the write-up
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="column is-two-thirds">
+              <div
+                className="card p-5"
+                style={{ color: "#363636", height: "100%", borderTop: "4px solid #00d1b2" }}
+              >
+                <div className="has-text-centered">
+                  <i
+                    className="fa-solid fa-newspaper fa-4x mb-3"
+                    aria-hidden="true"
+                    style={{ color: "#00d1b2" }}
+                  ></i>
+                </div>
+                <p className="title is-5 has-text-centered" style={{ color: "#363636" }}>
+                  Gallaudet Graduate School Newsletters
+                </p>
+                <p className="subtitle is-6 has-text-centered" style={{ color: "#363636" }}>
+                  Graphic design, video production, and ePublication work for Gallaudet
+                  University's Graduate School — five issues, cover to cover.
+                </p>
+                <div className="has-text-centered">
+                  <Link className="button is-primary is-outlined" style={{ color: "#00d1b2", borderColor: "#00d1b2" }} to="/graduateschool">
+                    View the newsletters
                   </Link>
                 </div>
               </div>
