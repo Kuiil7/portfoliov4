@@ -1,0 +1,964 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import mediapipeDiagram from "./images/sl2t_3.png";
+import calvinYoungPost from "./images/calvin.png";
+import christianeMendesPost from "./images/christine.png";
+import ryanCommersonPost from "./images/ryan.png";
+import sl2tVideo from "./videos/sl2t.mp4";
+import sl2tMacEmulatorVideo from "./videos/sl2t_2.mp4";
+import linusTorvaldsRebuttal from "./images/Screenshot 2026-09-29 at 10.11.44 PM.png";
+
+const WHITE = "#ffffff";
+const GRAY = "#f5f5f5";
+
+const scrollToSection = (id) => (e) => {
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) el.scrollIntoView({ behavior: "smooth" });
+};
+
+const Sl2t = () => {
+  return (
+    <main aria-labelledby="sl2t-title">
+      <section className="hero is-light">
+        <div className="hero-body">
+          <div className="container" style={{ maxWidth: "900px" }}>
+            <nav className="breadcrumb" aria-label="breadcrumbs" style={{ color: "#363636" }}>
+              <ul>
+                <li>
+                  <Link to="/portfolio">Portfolio</Link>
+                </li>
+                <li>
+                  <Link to="/inclusion">Inclusion</Link>
+                </li>
+                <li className="is-active">
+                  <Link to="/sl2t" aria-current="page" style={{ color: "#00d1b2" }}>
+                    SL2T Write-up
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+
+            <div className="content" style={{ color: "#363636" }}>
+              <h1 id="sl2t-title" className="has-text-centered">
+                SL2T is on your Gboard. It's just switched off.
+              </h1>
+              <p>
+                <em>
+                  A technical and accessibility write-up by Joe Merino — XDA handle{" "}
+                  <a
+                    href="https://xdaforums.com/m/jakister.2805356/#recent-content"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Jakister (jaxister)
+                  </a>
+                  . Deaf, Android modder since 2010.
+                </em>
+                <br />
+                <em>Published 2026-09-30. Companion to the XDA thread.</em>
+              </p>
+
+              <div className="columns is-vcentered">
+                <div className="column is-5">
+                  <h2 id="tldr">TL;DR</h2>
+                  <p>
+                    Google DeepMind shipped sign-language-to-text (SL2T) in Gboard on{" "}
+                    <strong>August 12, 2026</strong>. It's "first on Pixel 11, with more devices
+                    coming soon" — no date, and{" "}
+                    <strong>no hardware requirement stated anywhere</strong>, not in the blog and
+                    not in the co-authored AISLAC impact report.
+                  </p>
+                  <p>
+                    I removed the client-side gate. It works end-to-end on a{" "}
+                    <strong>
+                      Galaxy S23 Ultra (SM-S918U, Snapdragon 8 Gen 2, arm64-v8a, Android 16)
+                    </strong>{" "}
+                    — no root, no Pixel silicon. (Also reproduced independently on an ARM64 API-35
+                    Android emulator — running on an Apple Silicon Mac, a completely different
+                    build pipeline and a completely different chipmaker.)
+                  </p>
+                  <p>
+                    The only <em>feature</em> constraint is <code>arm64-v8a</code> +{" "}
+                    <code>minSdk 32</code>. There is no Tensor, no GPU, no region check. The gate is
+                    a flag.
+                  </p>
+                </div>
+                <div className="column is-4">
+                  <figure className="image">
+                    <img
+                      src={mediapipeDiagram}
+                      alt="Google's Sign-to-text onboarding screen on Gboard, showing the feature description and Terms of Service / AI Prohibited Use Policy / Privacy Policy consent prompt"
+                      style={{ width: "100%", borderRadius: "6px", border: "1px solid #dbdbdb" }}
+                    />
+                    <figcaption className="is-size-7 has-text-centered mt-2">
+                      Source: Google — Sign-to-text onboarding screen in Gboard
+                    </figcaption>
+                  </figure>
+                </div>
+                <div className="column is-3">
+                  <nav aria-label="table of contents">
+                    <p className="menu-label">On this page</p>
+                    <ul className="menu-list">
+                      <li>
+                        <a href="#tldr" onClick={scrollToSection("tldr")}>TL;DR</a>
+                      </li>
+                      <li>
+                        <a href="#what-happened" onClick={scrollToSection("what-happened")}>
+                          What happened: the promise that didn't ship
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#the-proof" onClick={scrollToSection("the-proof")}>
+                          The proof: it's a flag, not a chip
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="#accessibility-issue"
+                          onClick={scrollToSection("accessibility-issue")}
+                        >
+                          Why this is an accessibility issue, not a mod
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#why-posting" onClick={scrollToSection("why-posting")}>
+                          Why I'm the one posting this
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#not-doing" onClick={scrollToSection("not-doing")}>
+                          The risk
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#the-ask" onClick={scrollToSection("the-ask")}>The ask</a>
+                      </li>
+                      <li>
+                        <a href="#appendix" onClick={scrollToSection("appendix")}>
+                          Cross-platform verification
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#sources" onClick={scrollToSection("sources")}>Sources</a>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div style={{ backgroundColor: GRAY, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="what-happened"><i className="fa-solid fa-clock-rotate-left mr-2" style={{ color: "#00d1b2" }} aria-hidden="true"></i>What happened: the promise that didn't ship</h2>
+            <div style={{ borderLeft: "3px solid #00d1b2", paddingLeft: "1.5rem" }}>
+              <div style={{ position: "relative", paddingBottom: "1.75rem" }}>
+                <span
+                  style={{
+                    position: "absolute",
+                    left: "-1.95rem",
+                    top: "0.3rem",
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    backgroundColor: "#00d1b2",
+                  }}
+                ></span>
+                <p className="mb-1">
+                  <strong>Jun 2025</strong>
+                </p>
+                <p>
+                  SignGemma announced: "an open model coming to the Gemma family," on-device,
+                  "later this year"
+                </p>
+              </div>
+
+              <div style={{ position: "relative", paddingBottom: "1.75rem" }}>
+                <span
+                  style={{
+                    position: "absolute",
+                    left: "-1.95rem",
+                    top: "0.3rem",
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    backgroundColor: "#00d1b2",
+                  }}
+                ></span>
+                <p className="mb-1">
+                  <strong>Oct 2025</strong>
+                </p>
+                <p>
+                  Google, on their own developer forum: "has not yet been officially released…
+                  access is not currently available"
+                </p>
+              </div>
+
+              <div style={{ position: "relative", paddingBottom: "1.75rem" }}>
+                <span
+                  style={{
+                    position: "absolute",
+                    left: "-1.95rem",
+                    top: "0.3rem",
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    backgroundColor: "#00d1b2",
+                  }}
+                ></span>
+                <p className="mb-1">
+                  <strong>Jan 2026</strong>
+                </p>
+                <p>Google: "We don't have a specific timeline to share right now"</p>
+              </div>
+
+              <div style={{ position: "relative", paddingBottom: "1.75rem" }}>
+                <span
+                  style={{
+                    position: "absolute",
+                    left: "-1.95rem",
+                    top: "0.3rem",
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    backgroundColor: "#00d1b2",
+                  }}
+                ></span>
+                <p className="mb-1">
+                  <strong>Aug 12, 2026 — SL2T ships</strong>
+                </p>
+                <p>
+                  <strong>Closed. Pixel 11 only. ASL→English only.</strong>
+                </p>
+              </div>
+
+              <div style={{ position: "relative" }}>
+                <span
+                  style={{
+                    position: "absolute",
+                    left: "-1.95rem",
+                    top: "0.3rem",
+                    width: "12px",
+                    height: "12px",
+                    borderRadius: "50%",
+                    backgroundColor: "#00d1b2",
+                  }}
+                ></span>
+                <p className="mb-1">
+                  <strong>Aug 13, 2026</strong>
+                </p>
+                <p>
+                  A developer on Google's forum:{" "}
+                  <em>
+                    "15 months ago you announced SignGemma as 'an open model coming to the
+                    Gemma family later this year.' And yesterday you shipped SL2T on Pixel 11: a
+                    closed model."
+                  </em>
+                </p>
+              </div>
+            </div>
+
+            <p className="pt-4">
+              The <strong>AISLAC joint impact report</strong> — co-signed by the National
+              Association of the Deaf (NAD), the World Federation of the Deaf (WFD), RIT/National
+              Technical Institute for the Deaf (NTID), and the Deaf Professional Association of
+              North America (DPAN) — still lists open-weights SignGemma as{" "}
+              <em>"exploring… in consultation with the AISLAC."</em>
+            </p>
+            <p>That is not a timeline.</p>
+
+            <p>
+              <strong>Claim discipline (what I can and can't say):</strong>
+            </p>
+            <ul>
+              <li>
+                I can say Google stated <strong>no hardware requirement</strong> — and their own
+                architecture contains none.
+              </li>
+              <li>
+                I can say it <strong>already runs on Snapdragon 8 Gen 2</strong> — proven, not
+                promised.
+              </li>
+              <li>
+                I <em>cannot</em> say Google "promised to bring it to other phones" — "more
+                devices coming soon" is deliberately ambiguous (it could mean more Pixels).
+              </li>
+              <li>
+                I <em>cannot</em> say it's "exclusive to Pixel 11" — Google never said that. The
+                problem is the <strong>silence + client-side gating</strong>, not a stated
+                exclusion.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: WHITE, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="the-proof"><i className="fa-solid fa-flag mr-2" style={{ color: "#00d1b2" }} aria-hidden="true"></i>The proof: it's a flag, not a chip</h2>
+            <h3>The architecture</h3>
+            <p>
+              Signboard (the SL2T feature) is a <strong>Gboard feature split</strong> (
+              <code>split_signboard.apk</code>, ~18.7 MB) inside{" "}
+              <code>com.google.android.inputmethod.latin</code> — not a standalone app, not a
+              system service.
+            </p>
+            <ul>
+              <li>
+                <strong>On-device:</strong> MediaPipe Holistic — face/hand/pose TFLite models in
+                the split extract pose landmarks from the camera.
+              </li>
+              <li>
+                <strong>Translation:</strong> gRPC streaming to Google's cloud recognizer (
+                <code>speechs3proto2-pa.googleapis.com:443</code>, the "S3" service) →{" "}
+                <code>finalizedText</code> / <code>pendingText</code> back. An on-device
+                recognizer fallback exists for offline (reduced quality).
+              </li>
+              <li>
+                <strong>The server does not check your device or region.</strong> It accepts
+                landmark coordinates and returns text.
+              </li>
+            </ul>
+
+            <h3>The gate</h3>
+            <p>
+              On a non-Pixel, a re-signed Gboard gets <strong>zero Phenotype flags</strong>{" "}
+              (Google's server-delivered config). Without those flags, Gboard's{" "}
+              <strong>ModuleManager availability system</strong> never marks the signboard
+              module "available," so the <code>SignboardExtension</code> is never instantiated
+              and the tile never appears — even though the code is sitting in the APK.
+            </p>
+            <p>
+              I patched <strong>8 smali sites</strong> (all scoped by module ID, so no side
+              effects on the other ~170 modules) and re-signed:
+            </p>
+            <div className="table-container">
+              <table className="table is-bordered is-striped is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>File</th>
+                    <th>Patch</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>
+                      <code>qtx.smali</code>
+                    </td>
+                    <td>PIXEL_2024 / PIXEL_2025 checks → true</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>
+                      <code>urb.smali</code>
+                    </td>
+                    <td>
+                      <code>cr()</code> → true
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>
+                      <code>rth.smali</code>
+                    </td>
+                    <td>
+                      <code>a()</code> → true (skip cert check)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>
+                      <code>rsh.smali</code>
+                    </td>
+                    <td>
+                      <code>l()</code> → true (is-Pixel check)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>
+                      <code>ezt.smali</code>
+                    </td>
+                    <td>
+                      <code>enable_signboard</code> default → 1
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
+                    <td>
+                      <code>mmb.smali</code>
+                    </td>
+                    <td>
+                      inject "signboard" into <code>AccessPointsOrder</code>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>7</td>
+                    <td>
+                      <code>pwl.smali</code>
+                    </td>
+                    <td>
+                      <code>j()Z</code> — force flag-ready for module ids <code>0x110</code>{" "}
+                      (signboard) + <code>0x13c</code> (its dependency)
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>8</td>
+                    <td>
+                      <code>ModuleManager$ModuleInitListener.smali</code>
+                    </td>
+                    <td>
+                      force <code>areDependentModulesReady=true</code> for <code>0x110</code>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3><i className="fa-solid fa-circle-check mr-2" style={{ color: "#00d1b2" }} aria-hidden="true"></i>Verification (authoritative)</h3>
+            <p>
+              <code>dumpsys input_method</code> on the S23 after the patch:
+            </p>
+            <pre>
+              <code>{`ExtensionManager:
+  {tag=ezt, class=class ezt, instance=ezt@1a6af99}   ← instantiated (matches Pixel)
+AccessPointsOrder = [..., floating_keyboard, signboard, keyboard_resize, ...]
+enable_signboard{type=Boolean, finalValue=true, DEFAULT=true}`}</code>
+            </pre>
+
+            <p>I signed to the front camera. Logcat:</p>
+            <pre>
+              <code>{`LandmarkProcessor.maybeMakeS3Request(): Making S3 request. frame count: 14
+S3Handler: Sending S3Request. start: true, advance: true, frameCount: 14
+S3Response, status: IN_PROGRESS, error code: 0
+S3Response, status: DONE_SUCCESS, error code: 0
+SignboardPopup.finishTranscription()`}</code>
+            </pre>
+
+            <div className="columns is-vcentered my-5">
+              <div className="column is-half">
+                <i className="fa-solid fa-thumbs-up fa-5x mb-3" style={{ color: "#00d1b2" }} aria-hidden="true"></i>
+                <p>
+                  <strong>
+                    The S3 cloud recognizer is used (not the on-device fallback), and Google's
+                    server accepted the S23.
+                  </strong>{" "}
+                  No region gate, no device gate. The entire feature was client-side gating; the
+                  "server permission" is just the Phenotype rollout flag.
+                </p>
+              </div>
+              <div className="column is-half">
+                <video
+                  controls
+                  playsInline
+                  style={{
+                    width: "50%",
+                    display: "block",
+                    margin: "0 auto",
+                    borderRadius: "6px",
+                    border: "1px solid #dbdbdb",
+                  }}
+                  aria-label="Screen recording: signing to SL2T on the S23 Ultra, English text appearing on screen"
+                >
+                  <source src={sl2tVideo} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+
+            <h3 id="appendix">Cross-platform verification</h3>
+            <p>
+              <strong>Emulator note:</strong> running this on an Apple Silicon Mac host needed
+              an ARM64 system image (the signboard split ships an arm64-v8a native lib; it
+              won't load under x86_64 emulation) and{" "}
+              <code>-gpu host -feature GuestAngle</code> so MediaPipe's GPU delegate sees
+              OpenGL ES 3.1 instead of the ES 3.0 that <code>-gpu host</code> alone exposes on
+              macOS. That's an artifact of emulated GPU plumbing, not a hardware requirement of
+              the feature itself — the S23 needed no GPU check to pass at all.
+            </p>
+
+            <p>
+              <strong>Devices tested:</strong>
+            </p>
+            <div className="columns is-vcentered">
+              <div className="column is-one-third">
+                <figure className="image">
+                  <video
+                    controls
+                    playsInline
+                    style={{ width: "100%", borderRadius: "6px", border: "1px solid #dbdbdb" }}
+                    aria-label="Screen recording: SL2T repro running on the ARM64 emulator, Apple Silicon Mac host"
+                  >
+                    <source src={sl2tMacEmulatorVideo} type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
+                  <figcaption className="is-size-7 mt-2">
+                    Same repro, independently confirmed on the ARM64 emulator running on an
+                    Apple Silicon Mac host.
+                  </figcaption>
+                </figure>
+              </div>
+              <div className="column">
+                <div className="table-container">
+                  <table className="table is-bordered is-striped is-fullwidth">
+                    <thead>
+                      <tr>
+                        <th>Target</th>
+                        <th>Form factor</th>
+                        <th>Result</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Galaxy S23 Ultra (SM-S918U), physical</td>
+                        <td>Phone</td>
+                        <td>
+                          Signboard tile instantiated; S3 cloud recognizer completed end-to-end
+                          (the screen recording above)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Galaxy S21 Ultra (SM-S911U), physical</td>
+                        <td>Phone</td>
+                        <td>Same 8 gate patches, same result</td>
+                      </tr>
+                      <tr>
+                        <td>Galaxy S26 Ultra (SM-S948U), physical</td>
+                        <td>Phone</td>
+                        <td>Same 8 gate patches, same result</td>
+                      </tr>
+                      <tr>
+                        <td>Galaxy S20 Ultra (SM-G996U), physical</td>
+                        <td>Phone</td>
+                        <td>Same 8 gate patches, same result</td>
+                      </tr>
+                      <tr>
+                        <td>ARM64 API-35 emulator, Apple Silicon Mac host</td>
+                        <td>Phone (portrait)</td>
+                        <td>
+                          Same 8 gate patches, same result — independent confirmation on
+                          unrelated silicon
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <h3>One honest split: feature vs. install</h3>
+            <ul>
+              <li>
+                <strong>The feature is portable</strong> to any <code>arm64-v8a</code> / API 32+
+                device. Proven on the S23 Ultra (Samsung/Qualcomm) and, independently, on an
+                ARM64 emulator built and run on an Apple Silicon Mac (Google/ARM reference image
+                on Apple silicon) — same patch set, same outcome, two unrelated vendors.
+              </li>
+              <li>
+                <strong>The install is the device-dependent part.</strong> Where Gboard is a
+                normal user app in <code>/data</code> (the S23 — I <code>adb install</code>'d it
+                from the Pixel), swapping in the re-signed build is a one-liner, no root. Where
+                the OEM ships Gboard as a locked <strong>
+                  <code>/product</code> prebuilt
+                </strong>{" "}
+                (e.g. Pixel 8), replacing it hits a signature mismatch and removing the prebuilt
+                needs root (<code>/product</code> is read-only on a locked bootloader).
+              </li>
+            </ul>
+            <p>
+              So: the <em>feature</em> has no hardware limit. The <em>install</em> is a
+              one-liner on most devices and needs root on <code>/product</code>-prebuilt ones.
+              I'm not claiming "any phone, no root" — that would be false.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: GRAY, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="accessibility-issue"><i className="fa-solid fa-universal-access mr-2" style={{ color: "#00d1b2" }} aria-hidden="true"></i>Why this is an accessibility issue, not a mod</h2>
+            <p>
+              Sign language is the <strong>native language of a linguistic and cultural
+              minority</strong>. UN CRPD Article 30(4) affirms the right to recognition and
+              support of that linguistic identity, including sign languages. It is not a
+              disability to be fixed; it is a language with its own grammar, history, and
+              community.
+            </p>
+            <p>
+              For decades, Deaf communication has run through a <strong>human relay</strong>:
+            </p>
+            <ul>
+              <li>
+                <strong>1880</strong> — the Milan Congress, where sign language was effectively
+                banned from Deaf education by hearing outsiders.
+              </li>
+              <li>
+                <strong>1964</strong> — the TTY (teletype) machine, built by a Deaf person,
+                bridged Deaf and hearing over the phone line.
+              </li>
+              <li>
+                <strong>1974 onward</strong> — relay services (TTY relay, then video relay),
+                where a human interpreter is in the loop. (Video relay is free to the caller,
+                funded through the FCC's TRS fund; a private in-person sign-language interpreter
+                is a separate, much costlier option.)
+              </li>
+            </ul>
+            <p>
+              SL2T is the <strong>first time the platform itself does the translation</strong> —
+              no human in the middle. And the phone that can do it is the newest, most expensive
+              one in Google's lineup.
+            </p>
+            <p>
+              A Deaf person with a mid-range Android phone — which is what most of the world
+              actually uses — can't have that moment. Not because their phone can't. Because a
+              flag is off.
+            </p>
+
+            <h3><i className="fa-solid fa-comments mr-2" style={{ color: "#00d1b2" }} aria-hidden="true"></i>The community's own words</h3>
+            <div className="scrolling-wrapper pb-4" style={{ whiteSpace: "nowrap" }}>
+              <div
+                className="card mb-4"
+                style={{ display: "inline-block", width: "820px", whiteSpace: "normal", verticalAlign: "top", marginRight: "1.5rem" }}
+              >
+                <div className="columns is-vcentered is-mobile is-multiline p-4">
+                  <div className="column is-two-fifths">
+                    <figure className="image">
+                      <img
+                        src={calvinYoungPost}
+                        alt="Calvin Young's LinkedIn post, &quot;My Deaf grandpa is 83 years old.&quot;"
+                      />
+                    </figure>
+                  </div>
+                  <div className="column">
+                    <p style={{ color: "#363636" }}>
+                      <strong>Calvin Young</strong> (on his 83-year-old Deaf grandfather trying
+                      it for the first time): <em>"He signed. He signed. His words appeared on
+                      the screen. He looked at me, smiled, and immediately wanted to try it
+                      again."</em>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="card mb-4"
+                style={{ display: "inline-block", width: "820px", whiteSpace: "normal", verticalAlign: "top", marginRight: "1.5rem" }}
+              >
+                <div className="columns is-vcentered is-mobile is-multiline p-4">
+                  <div className="column is-two-fifths">
+                    <figure className="image">
+                      <img
+                        src={christianeMendesPost}
+                        alt="Christiane Nogueira Mendes's LinkedIn post about using SL2T at a Best Buy"
+                      />
+                    </figure>
+                  </div>
+                  <div className="column">
+                    <p style={{ color: "#363636" }}>
+                      <strong>Christiane Nogueira Mendes</strong> (on using it at a Best Buy):{" "}
+                      <em>"Today, my hands became my voice on a screen."</em>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="card mb-4"
+                style={{ display: "inline-block", width: "820px", whiteSpace: "normal", verticalAlign: "top" }}
+              >
+                <div className="columns is-vcentered is-mobile is-multiline p-4">
+                  <div className="column is-two-fifths">
+                    <figure className="image">
+                      <img
+                        src={ryanCommersonPost}
+                        alt="Ryan Commerson's LinkedIn post, &quot;Open SL2T: The Strategic Case for API Release&quot;"
+                      />
+                    </figure>
+                  </div>
+                  <div className="column">
+                    <p style={{ color: "#363636" }}>
+                      <strong>Ryan Commerson</strong> (on the strategic case for an open API):{" "}
+                      <em>"…the $200/hour interpreter with a 2-hour minimum loses its
+                      gatekeeping power."</em> And a historical warning: if this stays closed,
+                      the community repeats the pattern of waiting decades for access that only
+                      arrives on the newest, most expensive hardware.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p>
+              <em>(Full posts linked in the Sources section.)</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: WHITE, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="why-posting">Why I'm the one posting this</h2>
+            <p>
+              I'm Deaf, and I've been modding Android since 2010. My earliest posts are of me
+              getting <strong>Video Relay Services (VRS)</strong> working on phones that no longer exist —
+              I was trying to make Deaf communication work on mobile a decade before this was a
+              product. In 2011, I called Sprint for a data plan on my EVO 4G through a video
+              relay interpreter — and the rep refused to even process the request because I'm
+              Deaf. So I turned another phone into a free WiFi hotspot and got the EVO 4G online
+              without them, just to keep relay working.
+            </p>
+            <p>
+              I was making the Deaf-access argument on XDA in <strong>2011</strong> — posting
+              about captions and speech recognition for Deaf users. A senior member,{" "}
+              <strong>Azrienoch (Android Cues)</strong>, understood and kept sending me
+              transcripts of his videos; <strong>Dsixda</strong>'s Android Kitchen later
+              unblocked features on my phone that were already there but switched off, and I
+              donated to it because it mattered.
+            </p>
+            <p>
+              In <strong>2012</strong>, when <strong>Linus Torvalds</strong> asked whether
+              anybody really cares about a tablet's front-facing camera, I answered that I do:
+              it's what lets Deaf people use video relay on the go. Features that look like
+              throwaways are often communication access. This is the same case. (
+              <a href="#linus-source" onClick={scrollToSection("linus-source")}>
+                See the original post
+              </a>
+              .)
+            </p>
+            <article className="message is-warning">
+              <div className="message-body" style={{ fontSize: "1.25rem", fontStyle: "italic" }}>
+                The sign-to-text code was already on the phone. It was just switched off for
+                everyone but the Pixel 11.
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: GRAY, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="not-doing"><i className="fa-solid fa-triangle-exclamation mr-2" style={{ color: "#f14668" }} aria-hidden="true"></i>The risk</h2>
+            <p>
+              Re-signing Gboard goes against its terms of service, and Google can close this in
+              the next update.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: WHITE, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="the-ask"><i className="fa-solid fa-bullhorn mr-2" style={{ color: "#00d1b2" }} aria-hidden="true"></i>The ask</h2>
+            <p>
+              The Deaf community asked for this <strong>in writing</strong>, in the AISLAC
+              report: <strong>release the API, or release the weights.</strong> The answer so
+              far is "we're exploring it."
+            </p>
+            <p>
+              The infrastructure already exists on every phone.{" "}
+              <strong>Ship it to them, or open it up so others can.</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: GRAY, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div className="content" style={{ color: "#363636" }}>
+            <h2 id="sources">Sources</h2>
+            <div className="columns is-multiline">
+              <div className="column is-half">
+                <p style={{ textAlign: "left", display: "block", width: "100%" }}>
+                  <strong>Google / official</strong>
+                </p>
+                <ul>
+                  <li>
+                    DeepMind blog — "Putting sign language AI into users' hands":{" "}
+                    <a
+                      href="https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      deepmind.google
+                    </a>
+                  </li>
+                  <li>
+                    AISLAC joint impact report (PDF):{" "}
+                    <a
+                      href="https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/putting-sign-language-ai-into-users-hands/aislac-joint-impact-report-for-sl2t-1-0.pdf"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      storage.googleapis.com
+                    </a>
+                  </li>
+                  <li>
+                    SignGemma release-date thread:{" "}
+                    <a
+                      href="https://discuss.ai.google.dev/t/signgemma-release-date/113794"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      discuss.ai.google.dev
+                    </a>
+                  </li>
+                  <li>
+                    SignGemma access thread:{" "}
+                    <a
+                      href="https://discuss.ai.google.dev/t/how-to-get-access-to-signgemma/106766"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      discuss.ai.google.dev
+                    </a>
+                  </li>
+                  <li>
+                    The Aug 13, 2026 forum reply (broken-promise receipt): see XDA thread /
+                    screenshot
+                  </li>
+                </ul>
+              </div>
+
+              <div className="column is-half">
+                <p style={{ textAlign: "left", display: "block", width: "100%" }}>
+                  <strong>
+                    Community voices (LinkedIn — screenshots in the XDA thread; profile links
+                    below)
+                  </strong>
+                </p>
+                <ul>
+                  <li>
+                    Calvin Young —{" "}
+                    <a
+                      href="https://www.linkedin.com/in/calvin-young/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      profile
+                    </a>
+                  </li>
+                  <li>
+                    Christiane Nogueira Mendes —{" "}
+                    <a
+                      href="https://www.linkedin.com/in/christiane-nogueira-mendes/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      profile
+                    </a>
+                  </li>
+                  <li>
+                    Ryan Commerson —{" "}
+                    <a
+                      href="https://www.linkedin.com/in/ryan-commerson/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      profile
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="column is-half">
+                <p style={{ textAlign: "left", display: "block", width: "100%" }}>
+                  <strong>Author background</strong>
+                </p>
+                <ul>
+                  <li>
+                    XDA track record:{" "}
+                    <a
+                      href="https://xdaforums.com/m/jakister.2805356/#recent-content"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      xdaforums.com
+                    </a>
+                  </li>
+                </ul>
+                <figure id="linus-source" className="image" style={{ maxWidth: "420px" }}>
+                  <img
+                    src={linusTorvaldsRebuttal}
+                    alt={
+                      'Screenshot of "Technically Techy" blog post, July 21, 2012: Jakister\'s ' +
+                      "rebuttal to Linus Torvalds on the value of front-facing cameras for Deaf " +
+                      "video relay"
+                    }
+                    style={{ border: "1px solid #dbdbdb", borderRadius: "4px" }}
+                  />
+                  <figcaption className="is-size-7 mt-2">
+                    Linus Torvalds rebuttal (2012) + VRS posts — "Technically Techy" (archived
+                    blog), posted by Jakister
+                  </figcaption>
+                </figure>
+              </div>
+
+              <div className="column is-half">
+                <p style={{ textAlign: "left", display: "block", width: "100%" }}>
+                  <strong>Historical context (Wikipedia)</strong>
+                </p>
+                <ul>
+                  <li>Deaf history / Milan Congress (1880)</li>
+                  <li>TTY (1964)</li>
+                  <li>Telecommunications Relay Service / 711 / VRS</li>
+                  <li>UN CRPD Article 30(4)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style={{ backgroundColor: WHITE, padding: "3rem 0" }}>
+        <div className="container" style={{ maxWidth: "900px" }}>
+          <div style={{ color: "#363636" }}>
+            <p className="is-italic mb-3">
+              Written by Joe Merino — doctoral student at Gallaudet University, full-stack
+              developer, and (as Jakister / jaxister) an Android modder since 2010. This
+              write-up is a demonstration of a technical fact and an accessibility argument. It
+              is not affiliated with Google. Re-signing Gboard violates its ToS.
+            </p>
+            <div className="columns is-mobile is-centered">
+              <div className="column is-narrow">
+                <Link className="navbar-item4 navbar-item" to="https://github.com/kuiil7">
+                  <i className="fab fa-github fa-2x"></i>
+                  <p className="m-2">GitHub</p>
+                </Link>
+              </div>
+              <div className="column is-narrow">
+                <Link
+                  className="navbar-item4 navbar-item"
+                  to="https://www.linkedin.com/in/joe-merino-8298b6193/"
+                >
+                  <i className="fab fa-linkedin fa-2x"></i>
+                  <p className="m-2">LinkedIn</p>
+                </Link>
+              </div>
+            </div>
+            <p className="mt-4 has-text-centered">
+              <Link className="navbar-item4" to="/inclusion">
+                ← Back to Inclusion
+              </Link>
+              {"  ·  "}
+              <Link className="navbar-item4" to="/portfolio">
+                Back to Portfolio
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+};
+
+export default Sl2t;
