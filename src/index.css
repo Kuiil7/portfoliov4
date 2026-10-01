@@ -356,7 +356,7 @@ a:active {
 }
 
 .hero-body2 {
-  width: 55%; /* Width for desktop */
+  width: 75%; /* Width for desktop */
   margin-left: 0; /* Aligns the .hero-body to the left */
   margin-right: auto; /* Centers the .hero-body within its container */
   /* Ensure it's properly aligned to the left on desktop */
